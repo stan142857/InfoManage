@@ -26,6 +26,12 @@
         .auto-style4 {
             height: 20px;
         }
+        .auto-style5 {
+            width: 100%;
+        }
+        .auto-style6 {
+            width: 50px;
+        }
     </style>
 </head>
 <body>
@@ -34,7 +40,17 @@
             <table class="auto-style1">
                 <tr>
                     <td colspan="2" class="auto-style2">
-                        <asp:Image ID="ImgInfo" runat="server" Height="46px" Width="50px" ImageUrl="~/Img/timg.jpg" />
+                        <table class="auto-style5">
+                            <tr>
+                                <td class="auto-style6">
+                        <asp:Image ID="ImgInfo" runat="server" Height="46px" Width="100%" ImageUrl="~/Img/timg.jpg" />
+                                </td>
+                                <td>
+                                    <asp:ContentPlaceHolder ID="ContentPlaceHolder2" runat="server">
+                                    </asp:ContentPlaceHolder>
+                                </td>
+                            </tr>
+                        </table>
                     </td>
                 </tr>
                 <tr>
