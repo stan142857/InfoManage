@@ -86,6 +86,7 @@
       <DependentUpon>db_ZYF.edmx</DependentUpon>
       <LastGenOutput>db_ZYF.cs</LastGenOutput>
     </Content>
+    <Content Include="Img\logo.png" />
     <Content Include="style.css" />
     <Content Include="Img\timg.jpg" />
     <Content Include="Web.config" />

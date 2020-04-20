@@ -1,0 +1,263 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="InfoManageModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ZYF_JG_GYS">
+    <Key>
+      <PropertyRef Name="GYSID" />
+    </Key>
+    <Property Name="GYSID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="GYSName" Type="nvarchar" MaxLength="50" />
+    <Property Name="GYSPerson" Type="nvarchar" MaxLength="50" />
+    <Property Name="GYSNum" Type="char" MaxLength="11" />
+    <Property Name="GYSCity" Type="nvarchar" MaxLength="50" />
+    <Property Name="GYSAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="GYSBuildTime" Type="date" />
+    <Property Name="GYSLastTrade" Type="datetime" />
+    <Property Name="GYSStar" Type="int" />
+  </EntityType>
+  <EntityType Name="ZYF_JG_YF">
+    <Key>
+      <PropertyRef Name="YFID" />
+    </Key>
+    <Property Name="YFID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="YFName" Type="nvarchar" MaxLength="50" />
+    <Property Name="YFImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="YFAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="YFStar" Type="int" />
+    <Property Name="YFRegTime" Type="datetime" />
+    <Property Name="YFOpen" Type="int" />
+  </EntityType>
+  <EntityType Name="ZYF_JG_YFKC">
+    <Key>
+      <PropertyRef Name="YFKCID" />
+    </Key>
+    <Property Name="YFKCID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="YFID" Type="varchar" MaxLength="50" />
+    <Property Name="YPID" Type="varchar" MaxLength="50" />
+    <Property Name="YFKCResidueNum" Type="int" />
+    <Property Name="YFKCPrice" Type="money" />
+    <Property Name="YFKCBuildTime" Type="datetime" />
+    <Property Name="YFKCQualityGuauaPeriod" Type="int" />
+    <Property Name="YFKCInsideTimeUp" Type="datetime" />
+    <Property Name="YFKCOutsideTimeUp" Type="datetime" />
+    <Property Name="YFKCExceedQGP" Type="int" />
+    <Property Name="YFKCShare" Type="int" />
+  </EntityType>
+  <EntityType Name="ZYF_JG_YP">
+    <Key>
+      <PropertyRef Name="YPID" />
+    </Key>
+    <Property Name="YPID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="YPName" Type="nvarchar" MaxLength="50" />
+    <Property Name="YPImage" Type="nvarchar" MaxLength="50" />
+    <Property Name="YPKind" Type="nvarchar" MaxLength="50" />
+    <Property Name="GYSID" Type="varchar" MaxLength="50" />
+    <Property Name="YPRegTradeMark" Type="nvarchar" MaxLength="50" />
+    <Property Name="YPSaveStyle" Type="nvarchar" MaxLength="50" />
+    <Property Name="YPBuildTime" Type="datetime" />
+    <Property Name="YPLastUpdate" Type="datetime" />
+    <Property Name="YPSellUnit" Type="nvarchar" MaxLength="50" />
+    <Property Name="YPBarCode" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ZYF_QT_DD">
+    <Key>
+      <PropertyRef Name="DDID" />
+    </Key>
+    <Property Name="DDID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USERID" Type="varchar" MaxLength="50" />
+    <Property Name="YPID" Type="varchar" MaxLength="50" />
+    <Property Name="DDNum" Type="int" />
+    <Property Name="DDPrice" Type="money" />
+    <Property Name="DDMedicalInsure" Type="char" MaxLength="16" />
+    <Property Name="DDInsertTime" Type="datetime" />
+    <Property Name="DDFinishTime" Type="datetime" />
+    <Property Name="DDCancelTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ZYF_QT_TH">
+    <Key>
+      <PropertyRef Name="THID" />
+    </Key>
+    <Property Name="THID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DDID" Type="varchar" MaxLength="50" />
+    <Property Name="THNum" Type="int" />
+    <Property Name="THReason" Type="text" />
+  </EntityType>
+  <EntityType Name="ZYF_QT_XX">
+    <Key>
+      <PropertyRef Name="XXID" />
+    </Key>
+    <Property Name="XXID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USERID" Type="varchar" MaxLength="50" />
+    <Property Name="YFID" Type="varchar" MaxLength="50" />
+    <Property Name="YPID" Type="varchar" MaxLength="50" />
+    <Property Name="XXNum" Type="int" />
+    <Property Name="XXPrice" Type="money" />
+    <Property Name="XXMedicalInsure" Type="char" MaxLength="16" />
+    <Property Name="XXInsertTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="ZYF_QT_YFPZ">
+    <Key>
+      <PropertyRef Name="YFPZID" />
+    </Key>
+    <Property Name="YFPZID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USERID" Type="varchar" MaxLength="50" />
+    <Property Name="YFID" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ZYF_YH">
+    <Key>
+      <PropertyRef Name="USERID" />
+    </Key>
+    <Property Name="USERID" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="USERPassword" Type="varchar" MaxLength="50" />
+    <Property Name="USERRegTime" Type="datetime" />
+    <Property Name="USERLoginSuccTime" Type="datetime" />
+    <Property Name="USERLoginFailTime" Type="datetime" />
+    <Property Name="USERWorkNum" Type="varchar" MaxLength="50" />
+    <Property Name="USERIC" Type="char" MaxLength="18" />
+    <Property Name="USERName" Type="nvarchar" MaxLength="50" />
+    <Property Name="USERJob" Type="nvarchar" MaxLength="50" />
+    <Property Name="USERSex" Type="int" />
+    <Property Name="USERNumber" Type="char" MaxLength="11" />
+    <Property Name="USERAddress" Type="nvarchar" MaxLength="50" />
+    <Property Name="USERPower" Type="int" />
+    <Property Name="USEROnJob" Type="int" />
+  </EntityType>
+  <Association Name="FK_ZYF_JG_YP_ZYF_JG_GYS">
+    <End Role="ZYF_JG_GYS" Type="Self.ZYF_JG_GYS" Multiplicity="0..1" />
+    <End Role="ZYF_JG_YP" Type="Self.ZYF_JG_YP" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_JG_GYS">
+        <PropertyRef Name="GYSID" />
+      </Principal>
+      <Dependent Role="ZYF_JG_YP">
+        <PropertyRef Name="GYSID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_DD_ZYF_JG_YP">
+    <End Role="ZYF_JG_YP" Type="Self.ZYF_JG_YP" Multiplicity="0..1" />
+    <End Role="ZYF_QT_DD" Type="Self.ZYF_QT_DD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_JG_YP">
+        <PropertyRef Name="YPID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_DD">
+        <PropertyRef Name="YPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_DD_ZYF_YH">
+    <End Role="ZYF_YH" Type="Self.ZYF_YH" Multiplicity="0..1" />
+    <End Role="ZYF_QT_DD" Type="Self.ZYF_QT_DD" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_YH">
+        <PropertyRef Name="USERID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_DD">
+        <PropertyRef Name="USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_TH_ZYF_QT_DD">
+    <End Role="ZYF_QT_DD" Type="Self.ZYF_QT_DD" Multiplicity="0..1" />
+    <End Role="ZYF_QT_TH" Type="Self.ZYF_QT_TH" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_QT_DD">
+        <PropertyRef Name="DDID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_TH">
+        <PropertyRef Name="DDID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_XX_ZYF_JG_YF">
+    <End Role="ZYF_JG_YF" Type="Self.ZYF_JG_YF" Multiplicity="0..1" />
+    <End Role="ZYF_QT_XX" Type="Self.ZYF_QT_XX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_JG_YF">
+        <PropertyRef Name="YFID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_XX">
+        <PropertyRef Name="YFID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_XX_ZYF_JG_YP">
+    <End Role="ZYF_JG_YP" Type="Self.ZYF_JG_YP" Multiplicity="0..1" />
+    <End Role="ZYF_QT_XX" Type="Self.ZYF_QT_XX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_JG_YP">
+        <PropertyRef Name="YPID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_XX">
+        <PropertyRef Name="YPID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_XX_ZYF_QT_XX">
+    <End Role="ZYF_YH" Type="Self.ZYF_YH" Multiplicity="0..1" />
+    <End Role="ZYF_QT_XX" Type="Self.ZYF_QT_XX" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_YH">
+        <PropertyRef Name="USERID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_XX">
+        <PropertyRef Name="USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ZYF_QT_YFPZ_ZYF_YH">
+    <End Role="ZYF_YH" Type="Self.ZYF_YH" Multiplicity="0..1" />
+    <End Role="ZYF_QT_YFPZ" Type="Self.ZYF_QT_YFPZ" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ZYF_YH">
+        <PropertyRef Name="USERID" />
+      </Principal>
+      <Dependent Role="ZYF_QT_YFPZ">
+        <PropertyRef Name="USERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="InfoManageModelStoreContainer">
+    <EntitySet Name="ZYF_JG_GYS" EntityType="Self.ZYF_JG_GYS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_JG_YF" EntityType="Self.ZYF_JG_YF" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_JG_YFKC" EntityType="Self.ZYF_JG_YFKC" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_JG_YP" EntityType="Self.ZYF_JG_YP" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_QT_DD" EntityType="Self.ZYF_QT_DD" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_QT_TH" EntityType="Self.ZYF_QT_TH" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_QT_XX" EntityType="Self.ZYF_QT_XX" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_QT_YFPZ" EntityType="Self.ZYF_QT_YFPZ" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ZYF_YH" EntityType="Self.ZYF_YH" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_ZYF_JG_YP_ZYF_JG_GYS" Association="Self.FK_ZYF_JG_YP_ZYF_JG_GYS">
+      <End Role="ZYF_JG_GYS" EntitySet="ZYF_JG_GYS" />
+      <End Role="ZYF_JG_YP" EntitySet="ZYF_JG_YP" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_DD_ZYF_JG_YP" Association="Self.FK_ZYF_QT_DD_ZYF_JG_YP">
+      <End Role="ZYF_JG_YP" EntitySet="ZYF_JG_YP" />
+      <End Role="ZYF_QT_DD" EntitySet="ZYF_QT_DD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_DD_ZYF_YH" Association="Self.FK_ZYF_QT_DD_ZYF_YH">
+      <End Role="ZYF_YH" EntitySet="ZYF_YH" />
+      <End Role="ZYF_QT_DD" EntitySet="ZYF_QT_DD" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_TH_ZYF_QT_DD" Association="Self.FK_ZYF_QT_TH_ZYF_QT_DD">
+      <End Role="ZYF_QT_DD" EntitySet="ZYF_QT_DD" />
+      <End Role="ZYF_QT_TH" EntitySet="ZYF_QT_TH" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_XX_ZYF_JG_YF" Association="Self.FK_ZYF_QT_XX_ZYF_JG_YF">
+      <End Role="ZYF_JG_YF" EntitySet="ZYF_JG_YF" />
+      <End Role="ZYF_QT_XX" EntitySet="ZYF_QT_XX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_XX_ZYF_JG_YP" Association="Self.FK_ZYF_QT_XX_ZYF_JG_YP">
+      <End Role="ZYF_JG_YP" EntitySet="ZYF_JG_YP" />
+      <End Role="ZYF_QT_XX" EntitySet="ZYF_QT_XX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_XX_ZYF_QT_XX" Association="Self.FK_ZYF_QT_XX_ZYF_QT_XX">
+      <End Role="ZYF_YH" EntitySet="ZYF_YH" />
+      <End Role="ZYF_QT_XX" EntitySet="ZYF_QT_XX" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ZYF_QT_YFPZ_ZYF_YH" Association="Self.FK_ZYF_QT_YFPZ_ZYF_YH">
+      <End Role="ZYF_YH" EntitySet="ZYF_YH" />
+      <End Role="ZYF_QT_YFPZ" EntitySet="ZYF_QT_YFPZ" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -13,6 +13,15 @@ namespace InfoManage {
     public partial class administor {
         
         /// <summary>
+        /// Imglogo 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Image Imglogo;
+        
+        /// <summary>
         /// PanelLogin 控件。
         /// </summary>
         /// <remarks>
@@ -20,6 +29,15 @@ namespace InfoManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Panel PanelLogin;
+        
+        /// <summary>
+        /// TBUSERID 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TBUSERID;
         
         /// <summary>
         /// TBPassword 控件。
@@ -31,31 +49,22 @@ namespace InfoManage {
         protected global::System.Web.UI.WebControls.TextBox TBPassword;
         
         /// <summary>
-        /// TBPasswordconf 控件。
+        /// BtnLogin 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBPasswordconf;
+        protected global::System.Web.UI.WebControls.Button BtnLogin;
         
         /// <summary>
-        /// TBEmail 控件。
+        /// LblTip 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBEmail;
-        
-        /// <summary>
-        /// TBNumConf 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TBNumConf;
+        protected global::System.Web.UI.WebControls.Label LblTip;
         
         /// <summary>
         /// PanelRegister 控件。

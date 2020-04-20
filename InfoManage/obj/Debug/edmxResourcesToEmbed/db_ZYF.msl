@@ -1,0 +1,135 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="InfoManageModelStoreContainer" CdmEntityContainer="InfoManageEntities">
+    <EntitySetMapping Name="ZYF_JG_GYS">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_JG_GYS">
+        <MappingFragment StoreEntitySet="ZYF_JG_GYS">
+          <ScalarProperty Name="GYSID" ColumnName="GYSID" />
+          <ScalarProperty Name="GYSName" ColumnName="GYSName" />
+          <ScalarProperty Name="GYSPerson" ColumnName="GYSPerson" />
+          <ScalarProperty Name="GYSNum" ColumnName="GYSNum" />
+          <ScalarProperty Name="GYSCity" ColumnName="GYSCity" />
+          <ScalarProperty Name="GYSAddress" ColumnName="GYSAddress" />
+          <ScalarProperty Name="GYSBuildTime" ColumnName="GYSBuildTime" />
+          <ScalarProperty Name="GYSLastTrade" ColumnName="GYSLastTrade" />
+          <ScalarProperty Name="GYSStar" ColumnName="GYSStar" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_JG_YF">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_JG_YF">
+        <MappingFragment StoreEntitySet="ZYF_JG_YF">
+          <ScalarProperty Name="YFID" ColumnName="YFID" />
+          <ScalarProperty Name="YFName" ColumnName="YFName" />
+          <ScalarProperty Name="YFImage" ColumnName="YFImage" />
+          <ScalarProperty Name="YFAddress" ColumnName="YFAddress" />
+          <ScalarProperty Name="YFStar" ColumnName="YFStar" />
+          <ScalarProperty Name="YFRegTime" ColumnName="YFRegTime" />
+          <ScalarProperty Name="YFOpen" ColumnName="YFOpen" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_JG_YFKC">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_JG_YFKC">
+        <MappingFragment StoreEntitySet="ZYF_JG_YFKC">
+          <ScalarProperty Name="YFKCID" ColumnName="YFKCID" />
+          <ScalarProperty Name="YFID" ColumnName="YFID" />
+          <ScalarProperty Name="YPID" ColumnName="YPID" />
+          <ScalarProperty Name="YFKCResidueNum" ColumnName="YFKCResidueNum" />
+          <ScalarProperty Name="YFKCPrice" ColumnName="YFKCPrice" />
+          <ScalarProperty Name="YFKCBuildTime" ColumnName="YFKCBuildTime" />
+          <ScalarProperty Name="YFKCQualityGuauaPeriod" ColumnName="YFKCQualityGuauaPeriod" />
+          <ScalarProperty Name="YFKCInsideTimeUp" ColumnName="YFKCInsideTimeUp" />
+          <ScalarProperty Name="YFKCOutsideTimeUp" ColumnName="YFKCOutsideTimeUp" />
+          <ScalarProperty Name="YFKCExceedQGP" ColumnName="YFKCExceedQGP" />
+          <ScalarProperty Name="YFKCShare" ColumnName="YFKCShare" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_JG_YP">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_JG_YP">
+        <MappingFragment StoreEntitySet="ZYF_JG_YP">
+          <ScalarProperty Name="YPID" ColumnName="YPID" />
+          <ScalarProperty Name="YPName" ColumnName="YPName" />
+          <ScalarProperty Name="YPImage" ColumnName="YPImage" />
+          <ScalarProperty Name="YPKind" ColumnName="YPKind" />
+          <ScalarProperty Name="GYSID" ColumnName="GYSID" />
+          <ScalarProperty Name="YPRegTradeMark" ColumnName="YPRegTradeMark" />
+          <ScalarProperty Name="YPSaveStyle" ColumnName="YPSaveStyle" />
+          <ScalarProperty Name="YPBuildTime" ColumnName="YPBuildTime" />
+          <ScalarProperty Name="YPLastUpdate" ColumnName="YPLastUpdate" />
+          <ScalarProperty Name="YPSellUnit" ColumnName="YPSellUnit" />
+          <ScalarProperty Name="YPBarCode" ColumnName="YPBarCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_QT_DD">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_QT_DD">
+        <MappingFragment StoreEntitySet="ZYF_QT_DD">
+          <ScalarProperty Name="DDID" ColumnName="DDID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="YPID" ColumnName="YPID" />
+          <ScalarProperty Name="DDNum" ColumnName="DDNum" />
+          <ScalarProperty Name="DDPrice" ColumnName="DDPrice" />
+          <ScalarProperty Name="DDMedicalInsure" ColumnName="DDMedicalInsure" />
+          <ScalarProperty Name="DDInsertTime" ColumnName="DDInsertTime" />
+          <ScalarProperty Name="DDFinishTime" ColumnName="DDFinishTime" />
+          <ScalarProperty Name="DDCancelTime" ColumnName="DDCancelTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_QT_TH">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_QT_TH">
+        <MappingFragment StoreEntitySet="ZYF_QT_TH">
+          <ScalarProperty Name="THID" ColumnName="THID" />
+          <ScalarProperty Name="DDID" ColumnName="DDID" />
+          <ScalarProperty Name="THNum" ColumnName="THNum" />
+          <ScalarProperty Name="THReason" ColumnName="THReason" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_QT_XX">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_QT_XX">
+        <MappingFragment StoreEntitySet="ZYF_QT_XX">
+          <ScalarProperty Name="XXID" ColumnName="XXID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="YFID" ColumnName="YFID" />
+          <ScalarProperty Name="YPID" ColumnName="YPID" />
+          <ScalarProperty Name="XXNum" ColumnName="XXNum" />
+          <ScalarProperty Name="XXPrice" ColumnName="XXPrice" />
+          <ScalarProperty Name="XXMedicalInsure" ColumnName="XXMedicalInsure" />
+          <ScalarProperty Name="XXInsertTime" ColumnName="XXInsertTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_QT_YFPZ">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_QT_YFPZ">
+        <MappingFragment StoreEntitySet="ZYF_QT_YFPZ">
+          <ScalarProperty Name="YFPZID" ColumnName="YFPZID" />
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="YFID" ColumnName="YFID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ZYF_YH">
+      <EntityTypeMapping TypeName="InfoManageModel.ZYF_YH">
+        <MappingFragment StoreEntitySet="ZYF_YH">
+          <ScalarProperty Name="USERID" ColumnName="USERID" />
+          <ScalarProperty Name="USERPassword" ColumnName="USERPassword" />
+          <ScalarProperty Name="USERRegTime" ColumnName="USERRegTime" />
+          <ScalarProperty Name="USERLoginSuccTime" ColumnName="USERLoginSuccTime" />
+          <ScalarProperty Name="USERLoginFailTime" ColumnName="USERLoginFailTime" />
+          <ScalarProperty Name="USERWorkNum" ColumnName="USERWorkNum" />
+          <ScalarProperty Name="USERIC" ColumnName="USERIC" />
+          <ScalarProperty Name="USERName" ColumnName="USERName" />
+          <ScalarProperty Name="USERJob" ColumnName="USERJob" />
+          <ScalarProperty Name="USERSex" ColumnName="USERSex" />
+          <ScalarProperty Name="USERNumber" ColumnName="USERNumber" />
+          <ScalarProperty Name="USERAddress" ColumnName="USERAddress" />
+          <ScalarProperty Name="USERPower" ColumnName="USERPower" />
+          <ScalarProperty Name="USEROnJob" ColumnName="USEROnJob" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
