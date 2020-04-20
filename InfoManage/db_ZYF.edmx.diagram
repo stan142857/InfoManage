@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="b2e8f5522d9a4173b65f5ee65eb41c8a" Name="Diagram1">
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_JG_GYS" Width="1.5" PointX="1.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_JG_YF" Width="1.5" PointX="3.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_JG_YFKC" Width="1.5" PointX="8.75" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_JG_YP" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_QT_DD" Width="1.5" PointX="3" PointY="5.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_QT_TH" Width="1.5" PointX="5.25" PointY="10.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_QT_XX" Width="1.5" PointX="6" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_QT_YFPZ" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="InfoManageModel.ZYF_YH" Width="1.5" PointX="0.75" PointY="5.5" IsExpanded="true" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_JG_YP_ZYF_JG_GYS" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_XX_ZYF_JG_YF" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_DD_ZYF_JG_YP" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_XX_ZYF_JG_YP" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_DD_ZYF_YH" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_TH_ZYF_QT_DD" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_XX_ZYF_QT_XX" ManuallyRouted="false" />
+        <AssociationConnector Association="InfoManageModel.FK_ZYF_QT_YFPZ_ZYF_YH" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
