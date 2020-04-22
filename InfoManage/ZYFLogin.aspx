@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/InfoManage.Master" AutoEventWireup="true" CodeBehind="administor.aspx.cs" Inherits="InfoManage.administor" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/InfoManage.Master" AutoEventWireup="true" CodeBehind="ZYFLogin.aspx.cs" Inherits="InfoManage.administor" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
         .auto-style7 {
@@ -12,7 +12,7 @@
     <table class="auto-style5">
     <tr>
         <td>
-            <table class="auto-style5">
+            <table class="auto-style5" style="background-color:cyan">
                 <tr>
                     <td>&nbsp;</td>
                     <td>&nbsp;</td>
