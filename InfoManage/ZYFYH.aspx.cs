@@ -93,6 +93,16 @@ namespace InfoManage
             SqlHelper shr = new SqlHelper();
             DataTable dt =  shr.Query(bindgvdd);
 
+            if (dt.Rows.Count <= 0)
+            {
+                Label3.Visible = true;
+                Label3.Text = "您暂时没有订单，请重新预约";
+            }
+            else
+            {
+                Label3.Visible = false;
+            }
+
             GVDD.DataSource = dt;
             GVDD.DataBind();
         }

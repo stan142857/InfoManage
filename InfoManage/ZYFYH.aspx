@@ -101,7 +101,7 @@
                         <SortedDescendingCellStyle BackColor="#D4DFE1" />
                         <SortedDescendingHeaderStyle BackColor="#15524A" />
                     </asp:GridView>
-                    <asp:Label ID="Label3" runat="server" Text="Label" Visible="False"></asp:Label>
+                    <asp:Label ID="Label3" runat="server" Text="Label" Visible="False" ForeColor="White"></asp:Label>
                     <br />
                 </td>
             </tr>

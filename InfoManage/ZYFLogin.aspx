@@ -90,7 +90,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:LinkButton ID="LBBACK" runat="server" OnClick="LinkButton1_Click" Visible="False">注册完成，点击登陆</asp:LinkButton>
+                                        <asp:LinkButton ID="LBBACK" runat="server" OnClick="LinkButton1_Click" Visible="False" ForeColor="White">注册完成，点击登陆</asp:LinkButton>
                                     </td>
                                 </tr>
                             </table>
@@ -116,7 +116,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:LinkButton ID="LBtnRegister" runat="server" OnClick="LBtnRegister_Click">没有账号？点击注册</asp:LinkButton>
+                                        <asp:LinkButton ID="LBtnRegister" runat="server" OnClick="LBtnRegister_Click" ForeColor="White">没有账号？点击注册</asp:LinkButton>
                                     </td>
                                 </tr>
                                 <tr>
