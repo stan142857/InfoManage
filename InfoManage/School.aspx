@@ -1,4 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/InfoManage.Master" AutoEventWireup="true" CodeBehind="School.aspx.cs" Inherits="InfoManage.WebForm1" Async ="true"%>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
     .auto-style5 {
@@ -269,8 +270,6 @@
         <td class="auto-style4"></td>
         <td class="auto-style4"></td>
         <td class="auto-style24">
-            <asp:Panel ID="PanelForgetPass" runat="server">
-            </asp:Panel>
         </td>
         <td class="auto-style4"></td>
         <td class="auto-style18"></td>

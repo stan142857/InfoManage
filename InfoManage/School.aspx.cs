@@ -15,6 +15,8 @@ namespace InfoManage
         {
             HideOthers();
             PanelLogin.Visible = true;
+
+
         }
         #region 注册
         protected void BtnLogin_Click(object sender, EventArgs e)
@@ -119,7 +121,6 @@ namespace InfoManage
             PanelInfo.Visible = false;
             PanelReg.Visible = false;
             PanelLogin.Visible = false;
-            PanelForgetPass.Visible = false;
             PanelCache.Visible = false;
             Panel.Visible = false;
 
