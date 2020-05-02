@@ -121,7 +121,7 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:Label ID="LblTip" runat="server" Visible="False"></asp:Label>
+                                        <asp:Label ID="LblTip" runat="server" Visible="False" ForeColor="White"></asp:Label>
                                     </td>
                                 </tr>
                             </table>

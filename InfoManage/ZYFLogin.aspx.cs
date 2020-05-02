@@ -19,7 +19,11 @@ namespace InfoManage
             PanelLogin.Visible = true;
             BindGVDetails();
         }
-
+        /// <summary>
+        /// 登陆
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void BtnLogin_Click(object sender, EventArgs e)
         {
             string useridTemp;
@@ -60,6 +64,84 @@ namespace InfoManage
                 LblTip.Text = " 登录失败，提交有误，请重新登陆 !";
             }
         }
+        /// <summary>
+        /// 验证码发送
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void Btncon_Click(object sender, EventArgs e)
+        {
+            PanelRegister.Visible = true;
+            PanelLogin.Visible = false;
+
+            MailHelper mh = new MailHelper();
+
+            string sqlmail = string.Format("select USERID from ZYF_YH where USERID = '{0}'",TBEmail.Text.Trim());
+            SqlHelper shr = new SqlHelper();
+            DataTable dt = shr.Query(sqlmail);
+            if (dt.Rows.Count == 0)
+            {
+                Random rd = new Random();
+                string rconfirm = Convert.ToString(rd.Next(10000,99999));
+
+                Labeltip.Text = rconfirm;
+
+                string message = "尊敬的用户，您的验证码为：" + rconfirm;
+                string subject = "验证码注册";
+                mh.SendMail(TBEmail.Text.Trim(), message, subject);
+
+                LBBACK.Visible = true;
+                LBBACK.Text = "邮件已成功发送";
+                LBBACK.Enabled = false;
+            }
+            else
+            {
+                LBBACK.Visible = true;
+                LBBACK.Text = "无法使用此邮箱";
+                LBBACK.Enabled = false;
+            }
+        }
+        /// <summary>
+        /// 注册
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        protected void BtnReg_Click(object sender, EventArgs e)
+        {
+            if (TBPassNum.Text.Trim()==Labeltip.Text && TBPass.Text.Trim()== TBPasscon.Text.Trim())
+            {
+                string sqlin = string.Format("insert into ZYF_YH values('{0}', '{1}'," +
+                    " GETDATE(), GETDATE(), GETDATE(), 'ZC', 1, 'ZC', 'YH', 2, 127," +
+                    " 'ZC', 0, 0)",TBEmail.Text.Trim(),Hash(TBPass.Text.Trim()));
+                SqlHelper shr = new SqlHelper();
+                try
+                {
+                    shr.ExeNoQuery(sqlin);
+                    LBBACK.Visible = true;
+                    LBBACK.Text = "注册成功，点击登陆";
+                    LBBACK.Enabled = true;
+                }
+                catch(Exception ex)
+                {
+                    LBBACK.Visible = true;
+                    LBBACK.Text = "注册失败";
+                    LBBACK.Enabled = false;
+                }
+            }
+            PanelRegister.Visible = true;
+            PanelLogin.Visible = false;
+        }
+        protected void LBtnRegister_Click(object sender, EventArgs e)
+        {
+            PanelLogin.Visible = false;
+            PanelRegister.Visible = true;
+        }
+        protected void LinkButton1_Click(object sender, EventArgs e)
+        {
+            PanelRegister.Visible = false;
+            PanelLogin.Visible = true;
+        }
+
         #region 函数
         public void HideOthers()
         {
@@ -93,74 +175,5 @@ namespace InfoManage
             GridView1.DataBind();
         }
         #endregion
-        protected void LBtnRegister_Click(object sender, EventArgs e)
-        {
-            PanelLogin.Visible = false;
-            PanelRegister.Visible = true;
-        }
-        protected void Btncon_Click(object sender, EventArgs e)
-        {
-            PanelRegister.Visible = true;
-            PanelLogin.Visible = false;
-
-            MailHelper mh = new MailHelper();
-
-            string sqlmail = string.Format("select USERID from ZYF_YH where USERID = '{0}'",TBEmail.Text.Trim());
-            SqlHelper shr = new SqlHelper();
-            DataTable dt = shr.Query(sqlmail);
-            if (dt.Rows.Count == 0)
-            {
-                Random rd = new Random();
-                string rconfirm = Convert.ToString(rd.Next(10000,99999));
-
-                Labeltip.Text = rconfirm;
-
-                string message = "尊敬的用户，您的验证码为：" + rconfirm;
-                string subject = "验证码注册";
-                mh.SendMail(TBEmail.Text.Trim(), message, subject);
-
-                LBBACK.Visible = true;
-                LBBACK.Text = "邮件已成功发送";
-                LBBACK.Enabled = false;
-            }
-            else
-            {
-                LBBACK.Visible = true;
-                LBBACK.Text = "无法使用此邮箱";
-                LBBACK.Enabled = false;
-            }
-        }
-
-        protected void BtnReg_Click(object sender, EventArgs e)
-        {
-            if (TBPassNum.Text.Trim()==Labeltip.Text && TBPass.Text.Trim()== TBPasscon.Text.Trim())
-            {
-                string sqlin = string.Format("insert into ZYF_YH values('{0}', '{1}'," +
-                    " GETDATE(), GETDATE(), GETDATE(), 'ZC', 1, 'ZC', 'YH', 2, 127," +
-                    " 'ZC', 0, 0)",TBEmail.Text.Trim(),Hash(TBPass.Text.Trim()));
-                SqlHelper shr = new SqlHelper();
-                try
-                {
-                    shr.ExeNoQuery(sqlin);
-                    LBBACK.Visible = true;
-                    LBBACK.Text = "注册成功，点击登陆";
-                    LBBACK.Enabled = true;
-                }
-                catch(Exception ex)
-                {
-                    LBBACK.Visible = true;
-                    LBBACK.Text = "注册失败";
-                    LBBACK.Enabled = false;
-                }
-            }
-            PanelRegister.Visible = true;
-            PanelLogin.Visible = false;
-        }
-
-        protected void LinkButton1_Click(object sender, EventArgs e)
-        {
-            PanelRegister.Visible = false;
-            PanelLogin.Visible = true;
-        }
     }
 }
