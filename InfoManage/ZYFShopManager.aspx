@@ -262,13 +262,16 @@
                                     </tr>
                                     <tr __designer:mapid="460">
                                         <td style="border-color: #000000; border-style: double; border-width: inherit;" __designer:mapid="461" class="auto-style34">&nbsp;</td>
-                                        <td style="border-color: #000000; border-style: double; border-width: inherit;" colspan="2" __designer:mapid="461">&nbsp;</td>
+                                        <td style="border-color: #000000; border-style: double; border-width: inherit;" colspan="2" __designer:mapid="461">
+                                            <asp:Button ID="BtnAddYP" runat="server" Text="添加药品" />
+                                        </td>
                                     </tr>
                                 </table>
                     </td>
         </tr>
         <tr>
             <td class="auto-style19">
+                <br />
                 <br />
                     <asp:GridView ID="GVYPDetail" runat="server" AutoGenerateColumns="False" BackColor="#CCCCCC" BorderColor="#999999" BorderStyle="Solid" BorderWidth="3px" CellPadding="4" OnRowCommand="GVYPDetail_RowCommand" CellSpacing="2" ForeColor="Black" HorizontalAlign="Justify" Width="100%">
                         <Columns>
