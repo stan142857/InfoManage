@@ -26,11 +26,16 @@
     <asp:Label ID="Label1" runat="server" Text="Label"></asp:Label>
             </td>
             <td>
-                <asp:TreeView ID="TreeView1" runat="server" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged">
+                <asp:TreeView ID="TreeView1" runat="server" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged" ImageSet="Arrows">
+                    <HoverNodeStyle Font-Underline="True" ForeColor="#5555DD" />
                     <Nodes>
                         <asp:TreeNode Text="订购" Value="订购"></asp:TreeNode>
                         <asp:TreeNode Text="查看订单" Value="查看订单"></asp:TreeNode>
+                        <asp:TreeNode Text="退出" Value="退出"></asp:TreeNode>
                     </Nodes>
+                    <NodeStyle Font-Names="Tahoma" Font-Size="10pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
+                    <ParentNodeStyle Font-Bold="False" />
+                    <SelectedNodeStyle Font-Underline="True" ForeColor="#5555DD" HorizontalPadding="0px" VerticalPadding="0px" />
                 </asp:TreeView>
             </td>
         </tr>
@@ -58,7 +63,7 @@
                             </asp:TemplateField>
                             <asp:TemplateField HeaderText="购买">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("SerialN") %>'>购买</asp:LinkButton>
+                                    <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("SerialN") %>' CommandName='<%# Eval("YFKCID") %>'>购买</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -79,14 +84,14 @@
                     <asp:GridView ID="GVDD" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" HorizontalAlign="Center" OnRowCommand="GVDD_RowCommand" Visible="False" Width="100%">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>
-                            <asp:BoundField DataField="SerialN" HeaderText="序号" />
+                            <asp:BoundField DataField="DDID" HeaderText="序号" />
                             <asp:BoundField DataField="YPName" HeaderText="药品名" />
                             <asp:BoundField DataField="YPID" HeaderText="药品ID" />
                             <asp:BoundField DataField="DDNum" HeaderText="订单数目" />
                             <asp:BoundField DataField="DDPrice" HeaderText="订单价格" />
                             <asp:TemplateField HeaderText="处理">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LBtnDeal" runat="server" CommandArgument='<%# Eval("DDID") %>'>退订</asp:LinkButton>
+                                    <asp:LinkButton ID="LBtnDeal" runat="server" CommandArgument='<%# Eval("SerialN") %>'>退订</asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>

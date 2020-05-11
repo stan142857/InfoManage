@@ -33,7 +33,7 @@ namespace InfoManage
 {
     public class SqlHelper
     {
-        private static string mystr = System.Configuration.ConfigurationManager.ConnectionStrings["InfoManage"].ConnectionString;
+        private static readonly string mystr = System.Configuration.ConfigurationManager.ConnectionStrings["InfoManage"].ConnectionString;
         private SqlConnection con = new SqlConnection(mystr);
         SqlDataReader sdr;
         public SqlHelper()
@@ -42,7 +42,7 @@ namespace InfoManage
             //TODO: 在此处添加构造函数逻辑
             //
         }
-        public SqlConnection getCon()
+        public SqlConnection GetCon()
         {
             return con;
         }
@@ -51,9 +51,11 @@ namespace InfoManage
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = StrQueryCommand;
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = StrQueryCommand
+            };
             if (sdr != null)
                 sdr.Close();
             sdr = cmd.ExecuteReader();
@@ -72,9 +74,11 @@ namespace InfoManage
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = StrCmd;
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = StrCmd
+            };
             try
             {
                 cmd.ExecuteNonQuery();
@@ -98,10 +102,12 @@ namespace InfoManage
         {
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandText = cmdName;
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandText = cmdName,
+                CommandType = System.Data.CommandType.StoredProcedure
+            };
             foreach (SqlParameter p in ps)
             {
                 cmd.Parameters.Add(p);
@@ -123,10 +129,12 @@ namespace InfoManage
             DataTable dt = new DataTable();
             if (con.State == System.Data.ConnectionState.Closed)
                 con.Open();
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = con;
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.CommandText = cmdStr;
+            SqlCommand cmd = new SqlCommand
+            {
+                Connection = con,
+                CommandType = CommandType.StoredProcedure,
+                CommandText = cmdStr
+            };
             if (ps != null)
             {
                 foreach (SqlParameter p in ps)
