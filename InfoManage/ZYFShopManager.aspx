@@ -1,9 +1,6 @@
 ﻿<%@ Page Title="" Language="C#" MaintainScrollPositionOnPostback=true MasterPageFile="~/InfoManage.Master" AutoEventWireup="true" CodeBehind="ZYFShopManager.aspx.cs" Inherits="InfoManage.ZYFShopManager" EnableEventValidation="false"%>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
     <style type="text/css">
-        .auto-style7 {
-            width: 148px;
-        }
         .auto-stylemiddle {
             width: 70%;
         }
@@ -95,6 +92,13 @@
         .auto-style35 {
             width: 136px;
         }
+        .auto-style36 {
+            width: 102%;
+            height: 404px;
+        }
+        .auto-style37 {
+            height: 10px;
+        }
         </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder2" runat="server">
@@ -104,10 +108,10 @@
     <asp:Label ID="Label4" runat="server" Text="Label"></asp:Label>
             </td>
             <td>
-                <asp:TreeView ID="TreeView1" runat="server" ExpandDepth="0" ImageSet="Contacts" NodeIndent="10" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged">
-                    <HoverNodeStyle Font-Underline="False" />
+                <asp:TreeView ID="TreeView1" runat="server" ExpandDepth="0" ImageSet="Events" OnSelectedNodeChanged="TreeView1_SelectedNodeChanged">
+                    <HoverNodeStyle Font-Underline="False" ForeColor="Red" />
                     <Nodes>
-                        <asp:TreeNode Text="操作" Value="操作">
+                        <asp:TreeNode Text="本药房" Value="操作">
                             <asp:TreeNode Text="查询总订单" Value="查询总订单"></asp:TreeNode>
                             <asp:TreeNode Text="添加药品" Value="新建节点"></asp:TreeNode>
                         </asp:TreeNode>
@@ -118,7 +122,7 @@
                         <asp:TreeNode Text="退出" Value="退出"></asp:TreeNode>
                     </Nodes>
                     <NodeStyle Font-Names="Verdana" Font-Size="8pt" ForeColor="Black" HorizontalPadding="5px" NodeSpacing="0px" VerticalPadding="0px" />
-                    <ParentNodeStyle Font-Bold="True" ForeColor="#5555DD" />
+                    <ParentNodeStyle Font-Bold="False" />
                     <SelectedNodeStyle Font-Underline="True" HorizontalPadding="0px" VerticalPadding="0px" />
                 </asp:TreeView>
             </td>
@@ -132,32 +136,20 @@
                 <table class="auto-style15">
                     <tr>
                         <td colspan="2">
-                <asp:GridView ID="GVCalendar" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Height="190px" Width="381px" OnRowCommand="GVCalendar_RowCommand" HorizontalAlign="Justify" AllowPaging="True" OnPageIndexChanging="GVCalendar_PageIndexChanging" PageSize="6">
+                <asp:GridView ID="GVCalendar" runat="server" AutoGenerateColumns="False" BackColor="White" BorderColor="#336666" BorderStyle="Double" BorderWidth="3px" CellPadding="4" GridLines="Horizontal" Height="16px" Width="407px" OnRowCommand="GVCalendar_RowCommand" HorizontalAlign="Justify" AllowPaging="True" OnPageIndexChanging="GVCalendar_PageIndexChanging" PageSize="6">
                     <Columns>
                         <asp:BoundField DataField="RLID" HeaderText="ID" />
-                        <asp:TemplateField HeaderText="一月展" FooterText="---">
-                            <EditItemTemplate>
-                                <table class="auto-style5">
-                                    <tr>
-                                        <td>
-                                            <asp:Label ID="Label2" runat="server" Text='<%# Eval("USERID") %>'></asp:Label>
-                                        </td>
-                                        <td>
-                                            <asp:TextBox ID="TextBox2" runat="server" Text='<%# Eval("RLText") %>'></asp:TextBox>
-                                        </td>
-                                    </tr>
-                                </table>
-                            </EditItemTemplate>
+                        <asp:TemplateField HeaderText="月内">
                             <ItemTemplate>
-                                <table class="auto-style5">
+                                <table class="auto-style16">
                                     <tr>
-                                        <td>
-                                            <asp:LinkButton ID="LinkButton1" runat="server" Text='<%# Eval("USERID") %>' CommandArgument='<%# Eval("SerialN") %>' ToolTip="点击修改，其他人日历可用fork"></asp:LinkButton>
+                                        <td class="auto-style37">
+                                            <asp:LinkButton ID="LinkButton1" runat="server" CommandArgument='<%# Eval("SerialN") %>' Text='<%# Eval("USERID") %>'></asp:LinkButton>
                                         </td>
-                                        <td class="auto-style7">
-                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("RLText") %>' Height="18px" Width="160px"></asp:TextBox>
+                                        <td class="auto-style37">
+                                            <asp:TextBox ID="TextBox1" runat="server" Text='<%# Eval("RLText") %>'></asp:TextBox>
                                         </td>
-                                        <td>
+                                        <td class="auto-style37">
                                             <asp:Label ID="Label3" runat="server" Text='<%# Eval("RLBuildTime") %>'></asp:Label>
                                         </td>
                                     </tr>
@@ -264,33 +256,35 @@
                                         <td style="border-color: #000000; border-style: double; border-width: inherit;" __designer:mapid="450" colspan="3" class="auto-style1center">&nbsp;</td>
                                     </tr>
                                     <tr __designer:mapid="463">
-                                        <td __designer:mapid="464" style="border-color: #000000; border-style: double; border-width: inherit;" colspan="2">
-                                            <asp:DropDownList ID="DDLYP" runat="server" DataSourceID="YPSelect" DataTextField="YPName" DataValueField="YPName" Height="17px" Width="89px">
+                                        <td __designer:mapid="464" style="padding: inherit; border-color: #000000; border-style: double; border-width: inherit; background-color: #FFFFFF;" colspan="2">
+                                            <asp:Button ID="BtnQuerykc" runat="server" OnClick="BtnQuerykc_Click" Text="查询药品" Height="34px" Width="79px" />
+                                        </td>
+                                        <td __designer:mapid="465" class="auto-style16" style="padding: inherit; border-color: #000000; border-style: double; border-width: inherit; background-color: #FFFFFF;">
+                                            <asp:DropDownList ID="DDLYP" runat="server" DataSourceID="YPSelect" DataTextField="YPName" DataValueField="YPName" Height="19px" Width="96px">
                                                 <asp:ListItem>药品</asp:ListItem>
                                             </asp:DropDownList>
-                                            <asp:SqlDataSource ID="YPSelect" runat="server" ConnectionString="<%$ ConnectionStrings:InfoManageConnectionString %>" SelectCommand="SELECT DISTINCT [YPName] FROM [ZYF_JG_YP]"></asp:SqlDataSource>
-                                        </td>
-                                        <td __designer:mapid="465" class="auto-style16" style="border-color: #000000; border-style: double; border-width: inherit;">
-                                            <asp:Button ID="BtnQuerykc" runat="server" OnClick="BtnQuerykc_Click" Text="查询药品" />
                                         </td>
                                     </tr>
                                     <tr __designer:mapid="457">
-                                        <td style="border-color: #000000; border-style: double; border-width: inherit;" __designer:mapid="458" class="auto-style12" colspan="2">
-                                            <asp:DropDownList ID="DDLDD" runat="server">
-                                            </asp:DropDownList>
+                                        <td style="padding: inherit; border-color: #000000; border-style: double; border-width: inherit; background-color: #FFFFFF;" __designer:mapid="458" class="auto-style12" colspan="2">
+                                            <asp:Button ID="BtnQueryddUnfinish" runat="server" OnClick="BtnQueryddUnfinish_Click" Text="查询订单" Height="36px" Width="82px" />
                                         </td>
-                                        <td class="auto-style16" style="border-color: #000000; border-style: double; border-width: inherit;" __designer:mapid="45e">
-                                            <asp:Button ID="BtnQueryddUnfinish" runat="server" OnClick="BtnQueryddUnfinish_Click" Text="查询订单" />
+                                        <td class="auto-style16" style="padding: inherit; border-color: #000000; border-style: double; border-width: inherit; background-color: #FFFFFF;" __designer:mapid="45e">
+                                            <asp:DropDownList ID="DDLDD" runat="server" Height="17px" Width="93px">
+                                                <asp:ListItem></asp:ListItem>
+                                            </asp:DropDownList>
                                         </td>
                                     </tr>
                                     <tr __designer:mapid="460">
-                                        <td style="border-color: #000000; border-style: double; border-width: inherit;" __designer:mapid="461" class="auto-style34">
-                                            &nbsp;</td>
-                                        <td style="border-color: #000000; border-style: double; border-width: inherit;" colspan="2" __designer:mapid="461">
-                                            <asp:Button ID="BtnAddYP" runat="server" OnClick="BtnAddYP_Click" Text="添加药品" />
+                                        <td style="padding: inherit; border-color: #000000; border-style: double; border-width: inherit; background-color: #FFFFFF;" __designer:mapid="461" class="auto-style34">
+                                            <asp:Button ID="BtnAddYP" runat="server" OnClick="BtnAddYP_Click" Text="药品添加" Height="30px" Width="80px" />
+                                        </td>
+                                        <td style="padding: inherit; border-color: #000000; border-style: double; border-width: inherit; background-color: #FFFFFF;" colspan="2" __designer:mapid="461">
+                                            <asp:Button ID="BtnQueryddAll" runat="server" Height="32px" OnClick="BtnQueryddAll_Click" Text="查询总订单" Width="78px" />
                                         </td>
                                     </tr>
                                 </table>
+                                            <asp:SqlDataSource ID="YPSelect" runat="server" ConnectionString="<%$ ConnectionStrings:InfoManageConnectionString %>" SelectCommand="SELECT DISTINCT [YPName] FROM [ZYF_JG_YP]"></asp:SqlDataSource>
                     </td>
         </tr>
         <tr>
@@ -299,11 +293,9 @@
                     <ContentTemplate>
                         <asp:ScriptManager ID="ScriptManager1" runat="server">
                         </asp:ScriptManager>
-                        <table class="auto-style16">
+                        <table class="auto-style36">
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
-                                    <asp:LinkButton ID="LBtnNewYP" runat="server" OnClick="LBtnNewYP_Click">添加新药</asp:LinkButton>
-                                </td>
+                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">添加新药</td>
                                 <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
                                     <asp:TextBox ID="TBName" runat="server"></asp:TextBox>
                                 </td>
@@ -415,9 +407,9 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td style="background-image: url('Img/毕设.png')">库存</td>
+                                <td style="background-image: url('Img/毕设.png')">数目</td>
                                 <td style="background-image: url('Img/毕设.png')">
-                                    <asp:TextBox ID="TBNumber" runat="server" Height="16px" TextMode="Number" Width="101px"></asp:TextBox>
+                                    <asp:TextBox ID="TBNumber" runat="server" Height="16px" TextMode="Number" Width="95px"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
@@ -427,11 +419,23 @@
                                 </td>
                             </tr>
                             <tr>
+                                <td style="background-image: url('Img/毕设.png')">药店取货</td>
                                 <td style="background-image: url('Img/毕设.png')">
-                                    <asp:Label ID="Labeltip" runat="server" Text="Label" Visible="False"></asp:Label>
+                                    <asp:CheckBox ID="CBConfirm" runat="server" Text="共享确认" OnCheckedChanged="CBConfirm_CheckedChanged" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-image: url('Img/毕设.png')">开单</td>
+                                <td style="background-image: url('Img/毕设.png')">
+                                    <asp:CheckBox ID="CBSell" runat="server" OnCheckedChanged="CBSell_CheckedChanged" Text="开单确认" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="background-image: url('Img/毕设.png')">
+                                    <asp:Label ID="Labeltip" runat="server" Visible="False"></asp:Label>
                                 </td>
                                 <td style="background-image: url('Img/毕设.png')">
-                                    <asp:Button ID="BtnYPDetailsChange" runat="server" OnClick="BtnYPDetailsChange_Click" Text="修改" />
+                                    <asp:Button ID="BtnYPDetailsChange" runat="server" OnClick="BtnYPDetailsChange_Click" Text="修改/开方" />
                                 </td>
                             </tr>
                         </table>

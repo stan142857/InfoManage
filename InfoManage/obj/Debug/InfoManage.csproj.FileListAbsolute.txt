@@ -58,4 +58,3 @@ C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.csproj.
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.csproj.CopyComplete
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.dll
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.pdb
-C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.csprojAssemblyReference.cache

@@ -166,24 +166,6 @@ namespace InfoManage {
         protected global::System.Web.UI.WebControls.Button BtnAddCal;
         
         /// <summary>
-        /// DDLYP 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLYP;
-        
-        /// <summary>
-        /// YPSelect 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.SqlDataSource YPSelect;
-        
-        /// <summary>
         /// BtnQuerykc 控件。
         /// </summary>
         /// <remarks>
@@ -193,13 +175,13 @@ namespace InfoManage {
         protected global::System.Web.UI.WebControls.Button BtnQuerykc;
         
         /// <summary>
-        /// DDLDD 控件。
+        /// DDLYP 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DDLDD;
+        protected global::System.Web.UI.WebControls.DropDownList DDLYP;
         
         /// <summary>
         /// BtnQueryddUnfinish 控件。
@@ -211,6 +193,15 @@ namespace InfoManage {
         protected global::System.Web.UI.WebControls.Button BtnQueryddUnfinish;
         
         /// <summary>
+        /// DDLDD 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList DDLDD;
+        
+        /// <summary>
         /// BtnAddYP 控件。
         /// </summary>
         /// <remarks>
@@ -218,6 +209,24 @@ namespace InfoManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button BtnAddYP;
+        
+        /// <summary>
+        /// BtnQueryddAll 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnQueryddAll;
+        
+        /// <summary>
+        /// YPSelect 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.SqlDataSource YPSelect;
         
         /// <summary>
         /// UpdatePanel1 控件。
@@ -236,15 +245,6 @@ namespace InfoManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.ScriptManager ScriptManager1;
-        
-        /// <summary>
-        /// LBtnNewYP 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.LinkButton LBtnNewYP;
         
         /// <summary>
         /// TBName 控件。
@@ -443,6 +443,24 @@ namespace InfoManage {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TBPrice;
+        
+        /// <summary>
+        /// CBConfirm 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CBConfirm;
+        
+        /// <summary>
+        /// CBSell 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.CheckBox CBSell;
         
         /// <summary>
         /// Labeltip 控件。
