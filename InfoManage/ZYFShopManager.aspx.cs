@@ -67,6 +67,9 @@ namespace InfoManage
                 GVDD.DataSource = dt;
                 GVDD.DataBind();
             }
+            //合理性检测
+            LBLYPRightCheck.Visible = true;
+            LBLYPRightCheck.Text = "此用户订单无异常状况";
             shr.CloseConn();
         }
         protected void BtnQueryddAll_Click(object sender, EventArgs e)
@@ -257,6 +260,7 @@ namespace InfoManage
 
             LabelADDYP.Visible = false;
             Labeltip.Visible = false;
+            LBLYPRightCheck.Visible = false;
 
             TBName.Enabled = true;
         }

@@ -500,7 +500,8 @@
         </tr>
         <tr>
             <td class="auto-style29">
-                &nbsp;</td>
+                <asp:Label ID="LBLYPRightCheck" runat="server" Visible="False"></asp:Label>
+            </td>
             <td class="auto-style30">&nbsp;</td>
             <td class="auto-style31">
                 &nbsp;</td>
