@@ -295,35 +295,35 @@
                         </asp:ScriptManager>
                         <table class="auto-style36">
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">添加新药</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">添加新药</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBName" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">
                                     <asp:LinkButton ID="LBtnAddOldYP" runat="server" OnClick="LBtnAddOldYP_Click">入库已有</asp:LinkButton>
                                 </td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:DropDownList ID="DDLOldYP" runat="server" AutoPostBack="True" OnTextChanged="DDLOldYP_TextChanged">
                                     </asp:DropDownList>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">种类</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">种类</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBKind" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">入库数目</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">入库数目</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBINKCNUM" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">入库药房</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">入库药房</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:DropDownList ID="DropDownList4" runat="server" DataSourceID="RuKuYaoFang" DataTextField="YFID" DataValueField="YFID">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="RuKuYaoFang" runat="server" ConnectionString="<%$ ConnectionStrings:InfoManage %>" SelectCommand="SELECT * FROM [ZYF_QT_YFPZ] WHERE ([USERID] = @USERID)">
@@ -334,40 +334,40 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">价格</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">价格</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBINKCPRICE" runat="server" TextMode="Number"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">供应来源</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">供应来源</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:DropDownList ID="DDLGYS" runat="server" DataSourceID="GYSID" DataTextField="GYSID" DataValueField="GYSID">
                                     </asp:DropDownList>
                                     <asp:SqlDataSource ID="GYSID" runat="server" ConnectionString="<%$ ConnectionStrings:InfoManage %>" SelectCommand="SELECT DISTINCT [GYSID] FROM [ZYF_JG_GYS]"></asp:SqlDataSource>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">保存方式</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">保存方式</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBSave" runat="server" ToolTip="干燥存储"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">条形码</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">条形码</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBBarCode" runat="server"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">售卖方式</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">售卖方式</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:TextBox ID="TBSell" runat="server" ToolTip="袋"></asp:TextBox>
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">可共享</td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">可共享</td>
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:DropDownList ID="DDLINKCGX" runat="server">
                                         <asp:ListItem>0</asp:ListItem>
                                         <asp:ListItem>1</asp:ListItem>
@@ -375,10 +375,10 @@
                                 </td>
                             </tr>
                             <tr>
-                                <td class="auto-style1center" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style1center" style="background-color: #00FFFF; ">
                                     <asp:Label ID="LabelADDYP" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
                                 </td>
-                                <td class="auto-style12" style="border-style: hidden; padding: inherit; background-color: #00FF00; line-height: normal; vertical-align: baseline; width: auto;">
+                                <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" Text="确认" />
                                 </td>
                             </tr>

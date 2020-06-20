@@ -54,6 +54,7 @@ C:\Users\yuanlei\source\repos\InfoManage\InfoManage\bin\EntityFramework.xml
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\bin\EntityFramework.SqlServer.xml
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\bin\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.xml
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\bin\zh-Hans\EntityFramework.resources.dll
+C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.csprojAssemblyReference.cache
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.csproj.CoreCompileInputs.cache
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.csproj.CopyComplete
 C:\Users\yuanlei\source\repos\InfoManage\InfoManage\obj\Debug\InfoManage.dll

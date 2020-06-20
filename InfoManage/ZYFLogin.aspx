@@ -70,17 +70,17 @@
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="TBPass" runat="server" TextMode="Password"></asp:TextBox>
+                                        <asp:TextBox ID="TBPass" runat="server" TextMode="Password" ToolTip="输入密码"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="TBPasscon" runat="server" TextMode="Password"></asp:TextBox>
+                                        <asp:TextBox ID="TBPasscon" runat="server" TextMode="Password" ToolTip="确认密码"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td>
-                                        <asp:TextBox ID="TBPassNum" runat="server"></asp:TextBox>
+                                        <asp:TextBox ID="TBPassNum" runat="server">输入验证码</asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>

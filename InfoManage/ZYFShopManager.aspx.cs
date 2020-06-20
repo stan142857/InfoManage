@@ -516,7 +516,6 @@ namespace InfoManage
                 //本药房操作
                 CBConfirm.Checked = false;
                 CBConfirm.Enabled = false;
-                BtnYPDetailsChange.Text = "";
             }else if(YPGX == "1")
             {
                 //其他药房操作
