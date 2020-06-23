@@ -28,8 +28,32 @@ namespace InfoManage
 
             GridView1.DataSource = dt;
             GridView1.DataBind();
+            shr.CloseConn();
         }
         #region 表格展现
+        //搜索药品
+        protected void btnSearchYP_Click(object sender, EventArgs e)
+        {
+            string str = TextBox2.Text.ToString().Trim();
+            string strGet = "";
+            if(str.Length < 3)
+            {
+                strGet = str.Substring(0, str.Length);
+            }
+            else
+            {
+                strGet = str.Substring(0, 3);
+            }
+            string sql = string.Format("select YFKCID,YPName,YFName,YFKCResidueNum,YFKCPrice,ROW_NUMBER() OVER(ORDER BY YFKCPrice asc) as SerialN from (select * from ZYF_JG_YFKC) as aaa" +
+                " inner join(select YFName, YFID from ZYF_JG_YF)as bbb on aaa.YFID = bbb.YFID " +
+                " inner join(select YPID, YPName from ZYF_JG_YP where YPName like '%{0}%')as ccc on aaa.YPID = ccc.YPID", strGet);
+            SqlHelper shr = new SqlHelper();
+            DataTable dt = shr.Query(sql);
+
+            GridView1.DataSource = dt;
+            GridView1.DataBind();
+            shr.CloseConn();
+        }
         protected void GridView1_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             int index = Convert.ToInt32(e.CommandArgument) - 1;
@@ -72,6 +96,7 @@ namespace InfoManage
                 shr.ExeNoQuery(strUpdate);
                 Label2.Text = "更新订单";
             }
+            shr.CloseConn();
             Label2.Text = Label2.Text.ToString()+ "成功！";
         }
 
@@ -79,8 +104,7 @@ namespace InfoManage
         {
             int index = Convert.ToInt32(e.CommandArgument)-1;
             string DDID = GVDD.Rows[index].Cells[0].Text.ToString();
-
-
+            
             string strEndDD = string.Format("update ZYF_QT_DD set DDFinish = 1,DDCancelTime=getdate() where DDID = {0}",DDID);
             SqlHelper shr = new SqlHelper();
             shr.ExeNoQuery(strEndDD);
@@ -103,9 +127,11 @@ namespace InfoManage
             }
             else
             {
-                Label3.Visible = false;
+                Label3.Visible = true;
+                Label3.Text = "预约成功！";
             }
 
+            shr.CloseConn();
             GVDD.DataSource = dt;
             GVDD.DataBind();
         }
@@ -114,21 +140,30 @@ namespace InfoManage
         {
             if (TreeView1.SelectedValue == "订购")
             {
+                HideOthers();
                 GridView1.Visible = true;
-                GVDD.Visible = false;
-                Label2.Visible = false;
-                Label3.Visible = false;
+                btnSearchYP.Visible = true;
+                TextBox2.Visible = true;
             }
             else if (TreeView1.SelectedValue == "查看订单")
             {
-                GridView1.Visible = false;
+                HideOthers();
                 GVDD.Visible = true;
-                Label2.Visible = false;
-                Label3.Visible = false;
             }else if(TreeView1.SelectedValue == "退出")
             {
                 Response.Redirect("~/ZYFLogin.aspx");
             }
         }
+        public void HideOthers()
+        {
+            GridView1.Visible = false;
+            GVDD.Visible = false;
+            Label2.Visible = false;
+            Label3.Visible = false;
+
+            btnSearchYP.Visible = false;
+            TextBox2.Visible = false;
+        }
+
     }
 }

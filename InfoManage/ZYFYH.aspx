@@ -49,6 +49,8 @@
         <table class="auto-style5">
             <tr>
                 <td class="styleLU">
+                    <asp:TextBox ID="TextBox2" runat="server"></asp:TextBox>
+                    <asp:Button ID="btnSearchYP" runat="server" OnClick="btnSearchYP_Click" Text="搜索药品" />
                     <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CellPadding="4" ForeColor="#333333" GridLines="None" Height="100%" OnRowCommand="GridView1_RowCommand" Width="100%">
                         <AlternatingRowStyle BackColor="White" />
                         <Columns>

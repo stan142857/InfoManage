@@ -33,7 +33,11 @@ namespace InfoManage
                 "ROW_NUMBER() OVER(ORDER BY YFID asc) as SerialN from(select * from ZYF_JG_YFKC where YFID" +
                 " in (select YFID from ZYF_QT_YFPZ )) as AAAA inner join(select YPName, YPID " +
                 "from ZYF_JG_YP where YPName like '%{0}%') as bbbb on AAAA.YPID = bbbb.YPID ", DDLYP.SelectedItem.Text.ToString());
-
+            //清除数据+保持列
+            DataTable dtClear = (DataTable)GVYPDetail.DataSource;
+            dtClear.Rows.Clear();
+            GVYPDetail.DataSource = dtClear;
+            //重新赋值
             SqlHelper shr = new SqlHelper();
             DataTable dt = shr.Query(sqls);
 
@@ -185,13 +189,20 @@ namespace InfoManage
                 string RLText = ((TextBox)this.GVCalendar.Rows[index].Cells[1].FindControl("TextBox1")).Text.Trim();
                 string RLBuilTime = ((Label)this.GVCalendar.Rows[index].Cells[1].FindControl("Label3")).Text.Trim();
 
+                /*
                 string datetimeNow = DateTime.Now.AddDays(-30).ToShortDateString();
                 string sqlSelf = string.Format("select ROW_NUMBER() OVER(ORDER BY a.RLID asc) as SerialN,* from (select * from ZYF_QT_RL where USERID = " +
                     "'{0}' OR RLText LIKE '%{1}%') as a inner join(select * from ZYF_QT_RL where" +
                     " RLBuildTime > '{2}') as b on a.RLID = b.RLID", RLUserid, RLUserid, datetimeNow);
+                */
+                string datetimeNowMany = DateTime.Now.AddDays(-300).ToShortDateString();
+                string sqlSelf = string.Format("select ROW_NUMBER() OVER(ORDER BY a.RLID asc) as SerialN,* from (select * from ZYF_QT_RL where USERID = " +
+                    "'{0}' OR RLText LIKE '%{1}%') as a inner join(select * from ZYF_QT_RL where" +
+                    " RLBuildTime > '{2}') as b on a.RLID = b.RLID", RLUserid, RLUserid, datetimeNowMany);
                 DataTable dt = shr.Query(sqlSelf);
                 GVCalendar.DataSource = dt;
                 GVCalendar.DataBind();
+                GVCalendar.Visible = true;
             }
             catch (Exception)
             {
@@ -451,9 +462,21 @@ namespace InfoManage
                 //检查是否有相同库存档案，相同时不会插入新数据
                 string sqlSameYFKC = string.Format("select * from ZYF_JG_YFKC where YFID='{0}' AND YPID='{1}'", DropDownList4.Text.ToString(), dtYPUnsame.Rows[0][0].ToString());
                 DataTable dtSameYFKC = shr.Query(sqlSameYFKC);
+                string sqlDiffYFKC = string.Format("update ZYF_JG_YFKC set YFKCResidueNum = '{0}',YFKCPrice = '{1}',YFKCInsideTimeUp" +
+                    " = GETDATE(),YFKCShare = '{2}' where YFID ='{3}' AND YPID = '{4}'" +
+                    "", TBINKCNUM.Text.ToString().Trim(),TBINKCPRICE.Text.ToString().Trim(),DDLINKCGX.Text.ToString(),
+                    BindYFNAME(Request.QueryString["userid"].ToString()), dtYPUnsame.Rows[0][0].ToString());
                 if (dtSameYFKC.Rows.Count > 0)
                 {
-                    LabelADDYP.Text = LabelADDYP.Text + "入库成功.";
+                    try
+                    {
+                        shr.ExeNoQuery(sqlDiffYFKC);
+                        LabelADDYP.Text = LabelADDYP.Text + "入库成功！";
+                    }
+                    catch (Exception)
+                    {
+                        LabelADDYP.Text = LabelADDYP.Text + "入库失败！";
+                    }
                 }
                 else
                 {
@@ -514,12 +537,13 @@ namespace InfoManage
             if(YFID == dt.Rows[0][0].ToString())
             {
                 //本药房操作
-                CBConfirm.Checked = false;
-                CBConfirm.Enabled = false;
+                CBConfirm.Checked = true;
+                CBConfirm.Enabled = true;
             }else if(YPGX == "1")
             {
                 //其他药房操作
                 CBConfirm.Checked = false;
+                CBConfirm.Enabled = false;
             }
             shr.CloseConn();
             HideOthers();
@@ -563,6 +587,7 @@ namespace InfoManage
                 }
             }
             shr.CloseConn();
+            Labeltip.Visible = true;
 
             HideOthers();
             PanelYPDetailsChange.Visible = true;
@@ -581,5 +606,20 @@ namespace InfoManage
 
         #endregion
 
+        protected void GVDD_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GVCalendar.PageIndex = e.NewPageIndex;
+            string sql = string.Format("select DDID,USERID,YPName,c.YPID,DDNum,DDPrice,SerialN,DDFinish from(" +
+                "select YFID from ZYF_QT_YFPZ where USERID = '{0}') as a " +
+                "inner join(select* from ZYF_JG_YFKC )as b " +
+                "on a.YFID = b.YFID inner join(select*, ROW_NUMBER() OVER(ORDER BY YFKCID asc) as SerialN  from ZYF_QT_DD)as c " +
+                "on b.YFKCID = c.YFKCID inner join(select YPID, YPName from ZYF_JG_YP)as d " +
+                "on c.YPID = d.YPID", Request.QueryString["userid"].Trim());
+            SqlHelper shr = new SqlHelper();
+            DataTable dt = shr.Query(sql);
+            GVDD.DataSource = dt;
+            GVDD.DataBind();
+            shr.CloseConn();
+        }
     }
 }

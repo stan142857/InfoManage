@@ -376,7 +376,7 @@
                             </tr>
                             <tr>
                                 <td class="auto-style1center" style="background-color: #00FFFF; ">
-                                    <asp:Label ID="LabelADDYP" runat="server" ForeColor="Red" Text="Label" Visible="False"></asp:Label>
+                                    <asp:Label ID="LabelADDYP" runat="server" ForeColor="Red" Visible="False"></asp:Label>
                                 </td>
                                 <td class="auto-style12" style="background-color: #00FFFF; ">
                                     <asp:Button ID="BtnAdd" runat="server" OnClick="BtnAdd_Click" Text="确认" />
@@ -391,19 +391,19 @@
                             <tr>
                                 <td style="background-image: url('Img/毕设.png')">库存ID</td>
                                 <td style="background-image: url('Img/毕设.png')">
-                                    <asp:Label ID="LabelYFKCID" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="LabelYFKCID" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="background-image: url('Img/毕设.png')">药房ID</td>
                                 <td style="background-image: url('Img/毕设.png')">
-                                    <asp:Label ID="LabelYFID" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="LabelYFID" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
                                 <td style="background-image: url('Img/毕设.png')">药品名</td>
                                 <td style="background-image: url('Img/毕设.png')">
-                                    <asp:Label ID="LabelYPName" runat="server" Text="Label"></asp:Label>
+                                    <asp:Label ID="LabelYPName" runat="server"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
@@ -456,7 +456,7 @@
                             <asp:BoundField DataField="YFKCShare" HeaderText="共享" />
                             <asp:TemplateField HeaderText="操作">
                                 <ItemTemplate>
-                                    <asp:LinkButton ID="LBtnBuy" runat="server" CommandArgument='<%# Eval("SerialN") %>' CommandName='<%# Eval("YFKCID") %>'>修改</asp:LinkButton>
+                                    <asp:LinkButton ID="LBtnBuy" runat="server" CommandArgument='<%# Eval("SerialN") %>' CommandName='<%# Eval("YFKCID") %>' Text="修改"></asp:LinkButton>
                                 </ItemTemplate>
                             </asp:TemplateField>
                         </Columns>
@@ -470,7 +470,7 @@
                         <SortedDescendingCellStyle BackColor="#CAC9C9" />
                         <SortedDescendingHeaderStyle BackColor="#383838" />
                     </asp:GridView>
-                <asp:GridView ID="GVDD" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" HorizontalAlign="Center" Visible="False" Width="100%" ForeColor="#333333" GridLines="None" OnRowCommand="GVDD_RowCommand">
+                <asp:GridView ID="GVDD" runat="server" AllowPaging="True" AutoGenerateColumns="False" CellPadding="4" HorizontalAlign="Center" Visible="False" Width="100%" ForeColor="#333333" GridLines="None" OnRowCommand="GVDD_RowCommand" OnPageIndexChanging="GVDD_PageIndexChanging" PageSize="20">
                     <AlternatingRowStyle BackColor="White" />
                     <Columns>
                         <asp:BoundField DataField="DDID" HeaderText="序号" />
@@ -481,7 +481,7 @@
                         <asp:BoundField DataField="DDPrice" HeaderText="订单价格" />
                         <asp:TemplateField HeaderText="处理">
                             <ItemTemplate>
-                                <asp:LinkButton ID="LBtnDeal" runat="server" CommandArgument='<%# Eval("SerialN") %>' Text='<%# Eval("DDFinish") %>'></asp:LinkButton>
+                                <asp:LinkButton ID="LBtnDeal" runat="server" CommandArgument='<%# Eval("SerialN") %>' Text='<%# Eval("DDFinish") %>' ToolTip="0为未处理"></asp:LinkButton>
                             </ItemTemplate>
                         </asp:TemplateField>
                     </Columns>

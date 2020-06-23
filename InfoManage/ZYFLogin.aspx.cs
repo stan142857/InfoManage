@@ -63,6 +63,7 @@ namespace InfoManage
                 LblTip.Visible = true;
                 LblTip.Text = " 登录失败，提交有误，请重新登陆 !";
             }
+            shr.CloseConn();
         }
         /// <summary>
         /// 验证码发送
@@ -100,6 +101,7 @@ namespace InfoManage
                 LBBACK.Text = "无法使用此邮箱";
                 LBBACK.Enabled = false;
             }
+            shr.CloseConn();
         }
         /// <summary>
         /// 注册
@@ -121,12 +123,13 @@ namespace InfoManage
                     LBBACK.Text = "注册成功，点击登陆";
                     LBBACK.Enabled = true;
                 }
-                catch(Exception ex)
+                catch(Exception)
                 {
                     LBBACK.Visible = true;
                     LBBACK.Text = "注册失败";
                     LBBACK.Enabled = false;
                 }
+                shr.CloseConn();
             }
             PanelRegister.Visible = true;
             PanelLogin.Visible = false;
@@ -173,6 +176,7 @@ namespace InfoManage
 
             GridView1.DataSource = dt;
             GridView1.DataBind();
+            shr.CloseConn();
         }
         #endregion
     }

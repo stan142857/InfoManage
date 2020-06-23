@@ -99,6 +99,7 @@ namespace InfoManage
                 string subject = "Info管理网站";
                 mh.SendMail(toaddress,bodyContent,subject);
             }
+            shr.CloseConn();
         }
         #endregion
 
@@ -114,6 +115,7 @@ namespace InfoManage
                 HideOthers();
                 PanelInfo.Visible = true;
             }
+            shr.CloseConn();
         }
         #endregion
         public void HideOthers()
