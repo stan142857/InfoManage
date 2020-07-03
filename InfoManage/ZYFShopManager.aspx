@@ -115,9 +115,9 @@
                             <asp:TreeNode Text="查询总订单" Value="查询总订单"></asp:TreeNode>
                             <asp:TreeNode Text="添加药品" Value="新建节点"></asp:TreeNode>
                         </asp:TreeNode>
-                        <asp:TreeNode Text="日历" Value="日历">
-                            <asp:TreeNode Text="新建日历" Value="新建日历"></asp:TreeNode>
-                            <asp:TreeNode Text="修改日历" Value="修改日历"></asp:TreeNode>
+                        <asp:TreeNode Text="日程" Value="日历">
+                            <asp:TreeNode Text="新建日程" Value="新建日历"></asp:TreeNode>
+                            <asp:TreeNode Text="修改日程" Value="修改日历"></asp:TreeNode>
                         </asp:TreeNode>
                         <asp:TreeNode Text="退出" Value="退出"></asp:TreeNode>
                     </Nodes>
@@ -171,7 +171,7 @@
                     </tr>
                     <tr>
                         <td>
-                            <asp:Button ID="BtnInsert" runat="server" OnClick="BtnInsert_Click" Text="插入日历" />
+                            <asp:Button ID="BtnInsert" runat="server" OnClick="BtnInsert_Click" Text="插入日程" />
                         </td>
                         <td>
                             <asp:Button ID="BtnFork" runat="server" OnClick="BtnFork_Click" Text="FORK来源" />

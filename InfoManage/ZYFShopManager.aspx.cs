@@ -110,15 +110,21 @@ namespace InfoManage
             }
             string DDID = GVDD.Rows[index].Cells[0].Text;
             string sqlDeal = string.Format("update ZYF_QT_DD set DDFinish = {0} where DDID = '{1}'",d,DDID);
+            string sqlNum = string.Format("update ZYF_JG_YFKC set YFKCResidueNum = YFKCResidueNum - (select" +
+                " DDNum from ZYF_QT_DD where DDID = '{0}') where YFKCID = (select YFKCID from ZYF_QT_DD where DDID = '{1}')", DDID, DDID);
             SqlHelper shr = new SqlHelper();
             shr.ExeNoQuery(sqlDeal);
+            if (d == 1)
+            {
+                shr.ExeNoQuery(sqlNum);
+            }
             shr.CloseConn();
 
             GVDD.Visible = true;
             GVYPDetail.Visible = false;
         }
         #endregion
-        #region 日历
+        #region 日历->日程
         //add
         protected void BtnInsert_Click(object sender, EventArgs e)
         {
@@ -223,12 +229,19 @@ namespace InfoManage
             string sql = string.Format(" select YFKCID,YFID,YPName,YFKCResidueNum,YFKCPrice,YFKCBuildTime,YFKCQualityGuauaPeriod,YFKCOutsideTimeUp,YFKCExceedQGP,YFKCShare,ROW_NUMBER() OVER(ORDER BY YFID asc) as SerialN " +
                 " from(select * from ZYF_JG_YFKC where YFID in (select YFID from ZYF_QT_YFPZ where USERID = '{0}')) as AAAA" +
                 " inner join(select YPName, YPID from ZYF_JG_YP  ) as bbbb on AAAA.YPID = bbbb.YPID ", userid);
-
+            string YPNum = "";
             SqlHelper shr = new SqlHelper();
             DataTable dt = shr.Query(sql);
-
+            for(int i = 0;i < dt.Rows.Count; i++)
+            {
+                if (Convert.ToInt32( dt.Rows[i][3].ToString()) < 50)
+                {
+                    YPNum = YPNum + dt.Rows[i][2].ToString()+",";
+                }
+            }
             GVYPDetail.DataSource = dt;
             GVYPDetail.DataBind();
+            Response.Write(string.Format("<script language='javascript'>alert('{0}数目少于50')</script>",YPNum));
             shr.CloseConn();
         }
         public void BindGVCalendar()
@@ -354,11 +367,11 @@ namespace InfoManage
             {
                 HideOthers();
                 UpdatePanel1.Visible = true;
-            }else if(TreeView1.SelectedValue == "新建日历")
+            }else if(TreeView1.SelectedValue == "新建日程")
             {
                 HideOthers();
                 PanelAddCal.Visible = true;
-            }else if(TreeView1.SelectedValue == "修改日历")
+            }else if(TreeView1.SelectedValue == "修改日程")
             {
                 HideOthers();
                 PanelFork.Visible = true;

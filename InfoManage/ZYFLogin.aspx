@@ -101,7 +101,7 @@
                             <table class="auto-style5" style="text-align:center">
                                 <tr>
                                     <td class="auto-style7">
-                                        <asp:TextBox ID="TBUSERID" runat="server" Height="22px" Width="156px">AD00001</asp:TextBox>
+                                        <asp:TextBox ID="TBUSERID" runat="server" Height="22px" Width="156px"></asp:TextBox>
                                     </td>
                                 </tr>
                                 <tr>
